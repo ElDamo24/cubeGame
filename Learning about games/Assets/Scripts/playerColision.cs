@@ -9,6 +9,7 @@ public class playerColision : MonoBehaviour
         if (other.collider.tag == "Obstacle")
         {
             movement.enabled = false;
+            FindObjectOfType<gameManager>().gameOver();
         }
     }
 }

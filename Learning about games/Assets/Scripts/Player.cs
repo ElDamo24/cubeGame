@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        forwardForce =3000f;
+        forwardForce =4000f;
         leftRightForce = 50f;
     }
 
@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             rb.AddForce(-leftRightForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+        }
+
+        if (rb.position.y < -1)
+        {
+            FindObjectOfType<gameManager>().gameOver();
         }
     }
 }

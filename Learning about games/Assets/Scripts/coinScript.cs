@@ -1,13 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.UI;
 using UnityEngine;
 
 public class coinScript : MonoBehaviour
 {
+    public Text coin;
+    private int count;
     // Start is called before the first frame update
     void Start()
     {
-        
+        count = 0;
+        coin.text = "Coins: 0";
     }
 
     // Update is called once per frame
@@ -20,6 +22,8 @@ public class coinScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            count++;
+            coin.text = "Coins: " + count.ToString();
             Destroy(this.gameObject);
         }
     }
